@@ -1,0 +1,622 @@
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
+
+/* Colors
+#bb9af7
+#4F98CA
+#A6F0C6
+#00ff00
+*/
+:root {
+  --accent: #9ac2f7 !important;
+  --background: rgb(3.9, 3.9, 3.9) !important;
+  --header: #00ff00 !important;
+  --color: #fff !important;
+  --footer-color: #aaa !important;
+  --border-color: hsla(0, 0%, 100%, 0.1) !important;
+  --max-width: min(100%, 60em) !important;
+  --bold: #ffff00 !important;
+  --italic: #f2a9ff !important;
+  --blockquote-background: rgb(13, 13, 15) !important;
+  --quote-left: #9ac2f76b !important;
+  --quote-font: #dddddd !important;
+  --code-background: #011e36 !important;
+  --code-color: #dddddd !important;
+  --spoiler-background: #313f526b !important;
+  --font-JetBrains: "JetBrains Mono", monospace !important;
+  --font-Fira: "Fira Code", monospace !important;
+}
+
+/* Bold text */
+strong {
+  color: var(--bold);
+  font-weight: 600;
+}
+/* Italic text */
+em {
+  color: var(--italic);
+  font-weight: 200;
+}
+
+html,
+body {
+  font-family: var(
+    --font-JetBrains,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe WPC",
+    "Segoe UI",
+    system-ui,
+    "Ubuntu",
+    "Droid Sans",
+    sans-serif
+  );
+  padding: 0 26px;
+  line-height: var(--markdown-line-height, 22px);
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+body {
+  font-optical-sizing: auto;
+  /* Font weight: 400 = regular */
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.1rem;
+  background-color: var(--background);
+  color: var(--color);
+  font-feature-settings: "liga", "tnum", "case", "calt", "zero", "ss01", "locl",
+    "calt";
+  -webkit-font-smoothing: antialiased;
+  font-variant-ligatures: contextual;
+  -webkit-overflow-scrolling: touch;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  /* padding: Top Right Bottom Left */
+  padding: 1em 0.6em;
+}
+
+* {
+  box-shadow: none !important;
+  box-sizing: border-box !important;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  padding: 0 1em;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  min-width: 0;
+  min-height: 0;
+  flex: 1;
+  flex-grow: 1;
+  position: relative;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  width: var(--max-width);
+  margin-bottom: 1em;
+  flex-grow: 1;
+}
+.date {
+  font-size: 0.9em;
+  color: var(--footer-color);
+  margin-bottom: 2em;
+}
+footer {
+  margin-bottom: 1em;
+  padding-top: 2em;
+  font-size: 0.8em;
+  color: var(--footer-color);
+  margin-top: auto;
+}
+
+/* Reset margin top for elements */
+.title,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+pre {
+  margin-top: 0;
+}
+
+.title,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--header);
+  font-weight: 500;
+  line-height: 1.25;
+  margin-block-start: 1.75em;
+  margin-block-end: 1rem;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.title,
+h1 {
+  font-size: 2em;
+  border-bottom-width: 1px;
+}
+
+.title {
+  margin-block-end: 0.2em;
+}
+
+h2 {
+  font-size: 1.5em;
+  border-bottom-width: 1px;
+}
+
+h3 {
+  margin-block-start: 1.5em;
+  font-size: 1.25em;
+}
+
+h4 {
+  font-size: 1em;
+}
+
+h5 {
+  font-size: 0.875em;
+}
+
+h6 {
+  font-size: 0.85em;
+}
+p,
+blockquote,
+dl,
+table,
+pre,
+img,
+video {
+  margin-block-start: 1.25em;
+  margin-block-end: 1.25em;
+  box-shadow: none !important;
+}
+
+/* Maths block */
+span.katex-display {
+  background-color: rgba(48, 48, 48, 0.104);
+  color: rgb(255, 255, 255);
+  border-radius: 3px;
+  padding: 2rem;
+  display: block;
+  margin: 0.5em 0;
+  text-align: center;
+}
+
+.katex-html > .newline {
+  height: 0.2em !important;
+}
+
+.katex-display > .katex {
+  white-space: nowrap;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  text-align: initial;
+  /*
+  Commented out code:
+  padding: 1rem; */
+}
+
+.katex {
+  white-space: normal;
+  text-indent: 0;
+}
+
+/* Code block */
+pre,
+code {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+pre {
+  border: 1px solid var(--border-color) !important;
+  border-radius: 0 !important;
+  background-color: inherit !important;
+  padding: 1em 1.2em !important;
+  margin: 1.25em 0 !important;
+  box-shadow: none !important;
+  font-family: inherit !important;
+  font-weight: inherit !important;
+  word-wrap: break-word;
+  overflow: auto;
+}
+/* code text */
+code {
+  font-size: 1rem !important;
+  font-family: inherit !important;
+  font-weight: inherit !important;
+  color: var(--code-color) !important;
+}
+
+code:not(pre code) {
+  background-color: var(--code-background) !important;
+  color: inherit !important;
+  font-size: inherit !important;
+  /*
+  Commented out code:
+  font-size: .95rem !important; */
+  padding: 15px;
+  padding: 2px 5px !important;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+/* Quote */
+blockquote {
+  margin: 2;
+  border-radius: 2px;
+  /* TB LR */
+  padding: 0.05em 1em;
+  border-left: thick double var(--quote-left);
+  /*
+  Commented out code:
+  border-left: 0.2em solid var(--accent);
+  border-left: 3mm ridge var(--quote-left);
+  background: none !important;
+  */
+  background: var(--blockquote-background) !important;
+  color: var(--quote-font) !important;
+}
+
+figure {
+  margin: 0;
+  padding: 0;
+}
+
+img,
+video {
+  display: block;
+  margin-left: 1em;
+  margin-right: 1em;
+  max-width: calc(var(--max-width) - 2em);
+  max-height: 60em;
+}
+
+figcaption {
+  display: none;
+}
+
+/* Spoiler text */
+/* <span class="spoiler">Spoiler</span> */
+.spoiler {
+  transition: color 0.5s, background 0.5s;
+  padding: 0.2em 0.5em;
+  border-radius: 2px;
+  margin: 0.5em 0;
+  cursor: pointer;
+  color: transparent;
+  background-color: var(--spoiler-background);
+  user-select: none;
+}
+
+.spoiler > * {
+  opacity: 0;
+}
+
+.spoiler:hover,
+.spoiler:active {
+  background-color: transparent;
+  color: var(--color);
+  user-select: auto;
+}
+
+.spoiler:hover > *,
+.spoiler:active > * {
+  opacity: 1;
+}
+
+img[alt="emoji"] {
+  height: 2em;
+  margin: 0 0.05em 0 0.1em;
+  vertical-align: -0.5em;
+  display: inline-block;
+}
+
+/* Image size */
+img[src*="w10"] {
+  max-width: 10%;
+  height: auto;
+}
+img[src*="w20"] {
+  max-width: 20%;
+  height: auto;
+}
+img[src*="w30"] {
+  max-width: 30%;
+  height: auto;
+}
+img[src*="w40"] {
+  max-width: 40%;
+  height: auto;
+}
+img[src*="w50"] {
+  max-width: 50%;
+  height: auto;
+}
+img[src*="w60"] {
+  max-width: 60%;
+  height: auto;
+}
+img[src*="w70"] {
+  max-width: 70%;
+  height: auto;
+}
+img[src*="w80"] {
+  max-width: 80%;
+  height: auto;
+}
+img[src*="w90"] {
+  max-width: 90%;
+  height: auto;
+}
+img[src*="w100"] {
+  max-width: 100%;
+  height: auto;
+}
+
+img[alt*="w10"] {
+  max-width: 10%;
+  height: auto;
+}
+img[alt*="w20"] {
+  max-width: 20%;
+  height: auto;
+}
+img[alt*="w30"] {
+  max-width: 30%;
+  height: auto;
+}
+img[alt*="w40"] {
+  max-width: 40%;
+  height: auto;
+}
+img[alt*="w50"] {
+  max-width: 50%;
+  height: auto;
+}
+img[alt*="w60"] {
+  max-width: 60%;
+  height: auto;
+}
+img[alt*="w70"] {
+  max-width: 70%;
+  height: auto;
+}
+img[alt*="w80"] {
+  max-width: 80%;
+  height: auto;
+}
+img[alt*="w90"] {
+  max-width: 90%;
+  height: auto;
+}
+img[alt*="w100"] {
+  max-width: 100%;
+  height: auto;
+}
+
+@media screen and (max-width: 768px) {
+  img,
+  video {
+    margin-left: 0em;
+    margin-right: 0em;
+    max-width: var(--max-width);
+  }
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  box-shadow: none !important;
+}
+
+a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+  box-shadow: none !important;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 1px solid -webkit-focus-ring-color;
+  outline-offset: -1px;
+}
+
+li p {
+  margin-bottom: 0.7em;
+}
+
+/* Table of Contents */
+
+hr {
+  border: 0;
+  height: 1px;
+  border-bottom: 1px solid;
+}
+
+.scroll {
+  overflow: auto;
+  max-width: var(--max-width);
+}
+
+table {
+  border-collapse: collapse;
+  margin-bottom: 0.7em;
+}
+
+th {
+  text-align: left;
+  border-bottom: 1px solid;
+}
+
+table > tbody > tr + tr > td {
+  border-top: 1px solid;
+}
+
+#code-csp-warning {
+  position: fixed;
+  top: 0;
+  right: 0;
+  color: white;
+  margin: 16px;
+  text-align: center;
+  font-size: 12px;
+  font-family: sans-serif;
+  background-color: #444444;
+  cursor: pointer;
+  padding: 6px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+}
+
+#code-csp-warning:hover {
+  text-decoration: none;
+  background-color: #007acc;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+body.scrollBeyondLastLine {
+  margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+  position: relative;
+}
+
+body.showEditorSelection :not(tr, ul, ol).code-active-line:before,
+body.showEditorSelection :not(tr, ul, ol).code-line:hover:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: -12px;
+  height: 100%;
+}
+
+.vscode-high-contrast.showEditorSelection
+  :not(tr, ul, ol).code-line
+  .code-line:hover:before {
+  border-left: none;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+  left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+  border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+  border-left: 3px solid rgba(0, 0, 0, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+  border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+  border-left: 3px solid rgba(255, 255, 255, 0.6);
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+  border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+  border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+/* Prevent `sub` and `sup` elements from affecting line height */
+sub,
+sup {
+  line-height: 0;
+}
+
+ul ul:first-child,
+ul ol:first-child,
+ol ul:first-child,
+ol ol:first-child {
+  margin-bottom: 0;
+}
+
+p {
+  margin-bottom: 16px;
+}
+
+ul,
+ol {
+  margin-bottom: 0.7em;
+}
+
+th,
+td {
+  padding: 5px 10px;
+}
+
+body.wordWrap pre {
+  white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+  padding: 16px;
+  border-radius: 3px;
+  overflow: auto;
+}
+
+pre code {
+  display: inline-block;
+  color: var(--vscode-editor-foreground);
+  tab-size: 4;
+  background: none;
+}
+
+/** Theming */
+
+.vscode-high-contrast h1 {
+  border-color: rgb(0, 0, 0);
+}
+
+.vscode-light th {
+  border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark th {
+  border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light h2,
+.vscode-light hr,
+.vscode-light td {
+  border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark h2,
+.vscode-dark hr,
+.vscode-dark td {
+  border-color: rgba(255, 255, 255,  0.18);
+}
