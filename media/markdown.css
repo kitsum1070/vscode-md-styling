@@ -24,9 +24,9 @@
   --blockquote-background: rgb(13, 13, 15) !important;
   --quote-left: #9ac2f76b !important;
   --quote-font: #dddddd !important;
-  --code-background: #011e36 !important;
+  --code-background: #021929 !important;
   --code-color: #dddddd !important;
-  --spoiler-background: #313f526b !important;
+  --spoiler-background: #313f5252 !important;
   --font-JetBrains: "JetBrains Mono", monospace !important;
   --font-Fira: "Fira Code", monospace !important;
 }
