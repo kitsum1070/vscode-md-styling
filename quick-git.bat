@@ -1,6 +1,6 @@
 :: ============== Quick Git Push NORMAL ==============
 :: This script cannot be named `git.bat` as it will conflict with the real git command.
-:: Up-to-date version located at ckcksum/Hello repository.
+:: Up-to-date version located at kitsum1070/Hello repository.
 :: Last updated: 17/05/2025 : Updated title
 
 @echo off

@@ -1,3 +1,4 @@
 # (❁´◡`❁)
-vscode markdown preview theme<br>
-For my personal use only<br>
+
+vscode markdown preview theme \
+For personal use

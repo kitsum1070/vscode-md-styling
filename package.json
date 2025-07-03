@@ -1,9 +1,13 @@
 {
-  "name": "md-styling",
-  "displayName": "MARKDOWN STYLING",
-  "description": "meow meow meow uhehehehehe",
+  "name": "koito-md-styling",
+  "displayName": "Koito Markdown Styling",
+  "description": "Markdown Styling",
   "publisher": "maret0",
-  "version": "0.0.2",
+  "version": "0.0.3",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/kitsum1070/vscode-md-styling.git"
+  },
   "private": false,
   "preview": false,
   "qna": "false",
